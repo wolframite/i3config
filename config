@@ -165,12 +165,17 @@ bar {
 
 # assign shit
 assign [class="Keepassx"] $workspace10
-assign [class="spotify"] $workspace9
 assign [class="Firefox"] $workspace2
 assign [class="Telegram"] $workspace8
+# Because assign shit doesn't work for spotify
+for_window [class="Spotify"] move to workspace $workspace9
 
 # exec shit
 exec --no-startup-id dropbox start
+exec nm-applet
 exec keepassx
 exec spotify
 exec /opt/Telegram/Telegram
+
+# natural scrolling shit
+exec --no-startup-id synclient NaturalScrolling=1 VertScrollDelta=-113
