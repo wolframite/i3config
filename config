@@ -182,14 +182,14 @@ bar {
                 separator #757575
                 focused_workspace  $text-color          $bg-color
                 inactive_workspace $inactive-text-color $inactive-bg-color
-                urgent_workspace   $urgent-bg-color     $urgent-bg-color
+                urgent_workspace   $inactive-text-color $urgent-bg-color
         }
 }
 
 # Assign workspaces shit on my huge ass monitor
 workspace $workspace2  output DP1
 workspace $workspace8  output DP1
-workspace $workspace9  output DP1
+workspace $workspace9  output eDP1
 workspace $workspace10 output DP1
 
 # assign shit
