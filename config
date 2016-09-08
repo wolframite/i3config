@@ -202,6 +202,9 @@ assign [class="Slack"] $workspace7
 assign [class="Telegram"] $workspace8
 assign [class="Keepassx"] $workspace10
 
+# Set keymap shit
+exec setxkbmap -option compose:ralt
+
 # Because assign shit doesn't work for spotify
 for_window [class="Spotify"] move to workspace $workspace9
 
