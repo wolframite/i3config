@@ -38,6 +38,8 @@ bindsym $mod+Shift+q kill
 # Multi Monitor Shit
 #exec xrandr --output HDMI1 --auto --right-of eDP1
 
+# 
+
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
@@ -209,6 +211,9 @@ exec im-config -n uim
 # Because assign shit doesn't work for spotify
 for_window [class="Spotify"] move to workspace $workspace9
 
+# Disable touch pad
+xinput set-prop 13 "Device Enabled" 0
+
 # exec shit
 exec --no-startup-id dropbox start
 exec nm-applet
@@ -217,6 +222,3 @@ exec spotify
 exec /opt/Telegram/Telegram
 exec slack
 exec google-chrome
-
-# natural scrolling shit
-exec --no-startup-id synclient NaturalScrolling=1 VertScrollDelta=-113
