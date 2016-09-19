@@ -211,8 +211,13 @@ exec im-config -n uim
 # Because assign shit doesn't work for spotify
 for_window [class="Spotify"] move to workspace $workspace9
 
-# Disable touch pad
-xinput set-prop 13 "Device Enabled" 0
+# Try to improve palm recognition
+exec synclient PalmDetect=1
+exec synclient PalmMinWidth=4
+exec synclient PalmMinZ=50
+
+# Natural Scrolling Shit
+exec --no-startup-id synclient NaturalScrolling=1 VertScrollDelta=-113
 
 # exec shit
 exec --no-startup-id dropbox start
