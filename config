@@ -175,6 +175,7 @@ exec nm-applet
 exec keepassx
 exec spotify
 exec /opt/Telegram/Telegram
+exec --no-startup-id /usr/lib/gnome-settings-daemon/gnome-settings-daemon
 
 # natural scrolling shit
 exec --no-startup-id synclient NaturalScrolling=1 VertScrollDelta=-113
