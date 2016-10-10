@@ -36,34 +36,16 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # Multi Monitor Shit
-#exec xrandr --output HDMI1 --auto --right-of eDP1
-
-# 
+exec xrandr --output DP1 --auto --right-of eDP1
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-
-# change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
-
-# move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
 
 # sound shit
 bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute
@@ -75,7 +57,7 @@ bindsym $mod+Control+l exec i3lock
 # wallpaper
 exec_always feh --bg-fill ~/Pictures/wallpaper/2.jpg
 
-# alternatively, you can use the cursor keys:
+# move focused window
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
@@ -107,13 +89,20 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-# workspace shit
-set $workspace1 "1: Inbox "
-set $workspace2 "2: Firefox "
-set $workspace7 "7: Slack "
-set $workspace8 "8: Telegram "
-set $workspace9 "9: Spotify "
-set $workspace10 "10: KeepassX "
+# workspace shit / icon shit don't work anymore
+#set $workspace1 "1: Inbox "
+#set $workspace2 "2: Firefox "
+#set $workspace7 "7: Slack "
+#set $workspace8 "8: Telegram "
+#set $workspace9 "9: Spotify "
+#set $workspace10 "10: KeepassX "
+
+set $workspace1 "1: Inbox"
+set $workspace2 "2: Firefox"
+set $workspace7 "7: Slack"
+set $workspace8 "8: Telegram"
+set $workspace9 "9: Spotify"
+set $workspace10 "10: KeepassX"
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
@@ -148,9 +137,11 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
+# Screenshot Shit
+bindsym Print exec "gnome-screenshot"
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
-    # same bindings, but for the arrow keys
     bindsym Left resize shrink width 10 px or 10 ppt
     bindsym Down resize grow height 10 px or 10 ppt
     bindsym Up resize shrink height 10 px or 10 ppt
@@ -210,11 +201,6 @@ exec im-config -n uim
 
 # Because assign shit doesn't work for spotify
 for_window [class="Spotify"] move to workspace $workspace9
-
-# Try to improve palm recognition
-exec synclient PalmDetect=1
-exec synclient PalmMinWidth=4
-exec synclient PalmMinZ=50
 
 # Natural Scrolling Shit
 exec --no-startup-id synclient NaturalScrolling=1 VertScrollDelta=-113
